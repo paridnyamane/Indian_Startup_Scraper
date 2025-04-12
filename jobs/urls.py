@@ -1,6 +1,6 @@
 
 from django.urls import path
-from .views import JobPostListCreateView, run_scrapers_view, job_list_view
+from .views import job_list_view, JobPostListCreateView, run_scrapers_view
 
 urlpatterns = [
     path("", job_list_view, name="home"),  # for homepage view
@@ -9,6 +9,4 @@ urlpatterns = [
 
     # Run all scrapers and save jobs to the DB via POST
     path("run-scrapers/", run_scrapers_view, name="run-scrapers"),
-    
-
 ]
