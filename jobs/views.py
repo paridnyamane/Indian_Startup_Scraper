@@ -7,13 +7,7 @@ from .serializer import JobPostSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from jobs.all_scrapers import run_all_scrapers
-#del after use
-from django.core.management import call_command
-from django.http import HttpResponse
 
-def run_migrations_view(request):
-    call_command('migrate')
-    return HttpResponse("Migrations applied!")
 
 
 # Create your views here.
