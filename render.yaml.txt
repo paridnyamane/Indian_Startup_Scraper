@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: indian-startup-jobs
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn startup_scraper.wsgi
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: indian-startup-db
+          property: connectionString
+
+databases:
+  - name: indian-startup-db
+    databaseName: startup
+    user: startup_user
