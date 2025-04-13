@@ -99,6 +99,7 @@ python -m venv env
 2. Activate the virtual environment:
 
 env\Scripts\activate		#for Windows
+
 source env/bin/activate		#for Linux
 
 3. Install Dependencies:
