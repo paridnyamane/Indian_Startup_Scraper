@@ -131,6 +131,7 @@ python manage.py runserver
 9. Visit http://127.0.0.1:8000/ in your browser
 
 Manual Trigger for Scrapers via API(Optional):
+
 -paste in command prompt while server is running
 curl -X POST http://127.0.0.1:8000/api/run-scrapers/
 
