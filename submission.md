@@ -11,12 +11,26 @@ This website is fully deployed on Render and the link is: https://indian-startup
 Tech Choices:
 
 
-Backend: I used Django with Python partly because it was one of the requirements but also because it allows the structuring of the backend and frontend in one place which keeps things efficient.
-Web Scraping:  I used ‘requests’ to obtain HTML content from websites and BeautifulSoup to parse and extract exact listings from the raw HTML.
-Database: I used SQLite during local development for simplicity but went with PostgreSQL as the production database on Render deployment.
-Frontend: I used basic Django templates and Bootstrap for styling. 
-API: I used the Django REST Framework for building REST API to allow triggering the scrapers. 
-Live Deployment: I deployed the website live using Render because it works well with Django
+Backend: 
+
+I used Django with Python partly because it was one of the requirements but also because it allows the structuring of the backend and frontend in one place which keeps things efficient.
+
+Web Scraping: 
+
+I used ‘requests’ to obtain HTML content from websites and BeautifulSoup to parse and extract exact listings from the raw HTML.
+
+Database: 
+
+I used SQLite during local development for simplicity but went with PostgreSQL as the production database on Render deployment.
+
+Frontend: 
+I used basic Django templates and Bootstrap for styling.
+
+API: 
+I used the Django REST Framework for building REST API to allow triggering the scrapers. 
+
+Live Deployment:
+I deployed the website live using Render because it works well with Django
 
 
 
