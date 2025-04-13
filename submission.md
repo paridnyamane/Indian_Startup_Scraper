@@ -110,10 +110,13 @@ pip install -r requirements.txt
 - If current .env file throws a "SECRET_KEY not found" after migrate:
 
   1. Generate a new Django SECRET_KEY:
+     
   python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 
-  2. Create a .env file in the project root where ‘manage.py’ is present:
-  - if .env is getting saved as .env.txt, save as> ".env" should work.
+  3. Create a .env file in the project root where ‘manage.py’ is present:
+     
+  - *Tip*:if .env is getting saved as .env.txt, fix: save as> ".env" should work.
+    
   SECRET_KEY=your-secret-key	#paste the generated secret key
   DEBUG=True
   DATABASE_URL=sqlite:///db.sqlite3
