@@ -35,9 +35,13 @@ I deployed the website live using Render because it works well with Django
 Architecture
 
 The app follows a clean and minimal Django-based architecture as follows:
+
 Scrapers (jobs/all_scrapers/)
+
 This folder contains 3 Python scripts that act as individual scrapers for each job source (Remotive, Paytm, ShopClues). Each script fetches job listings, cleans the content (most needed for job descriptions), and returns structured data.
+
 Views (jobs/views.py)
+
 The views handle both the backend API logic and the frontend rendering:
 
 - There’s an API endpoint that triggers the scrapers and saves the job data to the database.
