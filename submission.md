@@ -12,15 +12,12 @@ Tech Choices:
 
 
 Backend: 
-
 I used Django with Python partly because it was one of the requirements but also because it allows the structuring of the backend and frontend in one place which keeps things efficient.
 
 Web Scraping: 
-
 I used ‘requests’ to obtain HTML content from websites and BeautifulSoup to parse and extract exact listings from the raw HTML.
 
 Database: 
-
 I used SQLite during local development for simplicity but went with PostgreSQL as the production database on Render deployment.
 
 Frontend: 
