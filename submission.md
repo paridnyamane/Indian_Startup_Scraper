@@ -98,9 +98,9 @@ python -m venv env
 
 2. Activate the virtual environment:
 
-env\Scripts\activate		&nbsp#for Windows
+env\Scripts\activate		&nbsp;&nbsp;#for Windows
 
-source env/bin/activate		&nbsp#for Linux
+source env/bin/activate		&nbsp;&nbsp;#for Linux
 
 3. Install Dependencies:
    
@@ -118,14 +118,14 @@ pip install -r requirements.txt
      
   - *Tip*:if .env is getting saved as .env.txt, fix: save as> ".env" should work.
     
-  SECRET_KEY=your-secret-key	&nbsp#paste the generated secret key
+  SECRET_KEY=your-secret-key	&nbsp;&nbsp;#paste the generated secret key
   DEBUG=True
   DATABASE_URL=sqlite:///db.sqlite3
 
 
 5. Setup Database and Static Files:
    
-python manage.py migrate		&nbsp#apply db migrations
+python manage.py migrate		&nbsp;&nbsp;#apply db migrations
 python manage.py collectstatic --noinput	#collect static files
 
 7. Run Development Server:
