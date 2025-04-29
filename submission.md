@@ -90,6 +90,7 @@ Web Browser to view frontend
 Use Git to clone the project and navigate to project’s directory:
 
 git clone https://github.com/paridnyamane/Indian_Startup_Scraper.git
+
 cd Indian_Startup_Scraper
 
 1. Create a Virtual Environment:
@@ -126,6 +127,7 @@ pip install -r requirements.txt
 5. Setup Database and Static Files:
    
 python manage.py migrate		&nbsp;&nbsp;#apply db migrations
+
 python manage.py collectstatic --noinput	#collect static files
 
 7. Run Development Server:
@@ -136,7 +138,8 @@ python manage.py runserver
 
 Manual Trigger for Scrapers via API(Optional):
 
--paste in command prompt while server is running
+-paste in command prompt while server is running:
+
 curl -X POST http://127.0.0.1:8000/api/run-scrapers/
 
 
