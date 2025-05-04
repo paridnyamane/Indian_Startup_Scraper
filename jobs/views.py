@@ -9,11 +9,6 @@ from rest_framework.response import Response
 from jobs.all_scrapers import run_all_scrapers
 from django.core.paginator import Paginator
 
-# New imports for the cleanup endpoint
-from django.db.models import Q
-from django.views.decorators.http import require_http_methods
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 class JobPostListCreateView(generics.ListCreateAPIView):
@@ -74,14 +69,14 @@ def job_list_view(request):
 
     jobs = JobPost.objects.all().order_by('-job_posted_at')
     # Apply post date filtering
-    if filter == "24h":
-        jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=1))
-    elif filter == "3d":
-        jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=3))
-    elif filter == "7d":
-        jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=7))
-    elif filter == "30d":
-        jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=30))
+    # if filter == "24h":
+    #     jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=1))
+    # elif filter == "3d":
+    #     jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=3))
+    # elif filter == "7d":
+    #     jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=7))
+    # elif filter == "30d":
+    #     jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=30))
 
      # Title/location filter
     if title_query:
@@ -96,20 +91,6 @@ def job_list_view(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    
 
     return render(request, "jobs/home.html", {"jobs": page_obj, "filter": filter})
-@csrf_exempt
-@require_http_methods(["POST"])
-def cleanup_remotive_jobs(request):
-    rem_qs = JobPost.objects.filter(apply_link__icontains="remotive.com")
-    # 2) Within those, find the “bad” ones missing allowed locations
-    bad_qs = rem_qs.exclude(
-        Q(location__icontains="india") |
-        Q(location__icontains="remote") |
-        Q(location__icontains="worldwide") |
-        Q(location="")
-    )
-    # 3) Delete them
-    deleted_count, _ = bad_qs.delete()
-    return JsonResponse({"deleted": deleted_count})
+>>>>>>> backup-main
