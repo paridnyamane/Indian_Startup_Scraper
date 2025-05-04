@@ -106,7 +106,7 @@ def cleanup_remotive_jobs(request):
     One-time cleanup: delete Remotive entries whose location
     isn’t India, Remote, or Worldwide.
     """
-    qs = JobPost.objects.filter(source="Remotive").exclude(
+    qs = JobPost.objects.filter(source="remotive").exclude(
             Q(location__icontains="india") |
             Q(location__icontains="remote") |
             Q(location__icontains="worldwide") |
