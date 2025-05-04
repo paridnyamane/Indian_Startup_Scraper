@@ -102,7 +102,7 @@ def job_list_view(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def cleanup_remotive_jobs(request):
-    rem_qs = JobPost.objects.filter(apply_link__icontains="remotive.io")
+    rem_qs = JobPost.objects.filter(apply_link__icontains="remotive.com")
     # 2) Within those, find the “bad” ones missing allowed locations
     bad_qs = rem_qs.exclude(
         Q(location__icontains="india") |
