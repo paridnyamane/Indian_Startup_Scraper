@@ -9,6 +9,10 @@ from rest_framework.response import Response
 from jobs.all_scrapers import run_all_scrapers
 from django.core.paginator import Paginator
 
+# New imports for the cleanup endpoint
+from django.db.models import Q
+from django.views.decorators.http import require_http_methods
+from django.http import JsonResponse
 
 # Create your views here.
 class JobPostListCreateView(generics.ListCreateAPIView):
@@ -91,5 +95,21 @@ def job_list_view(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
+    
 
     return render(request, "jobs/home.html", {"jobs": page_obj, "filter": filter})
+@require_http_methods(["POST"])
+def cleanup_remotive_jobs(request):
+    """
+    One-time cleanup: delete Remotive entries whose location
+    isn’t India, Remote, or Worldwide.
+    """
+    qs = JobPost.objects.filter(company_name="Remotive") \
+        .exclude(
+            Q(location__icontains="india") |
+            Q(location__icontains="remote") |
+            Q(location__icontains="worldwide") |
+            Q(location="")
+        )
+    deleted_count, _ = qs.delete()
+    return JsonResponse({"deleted": deleted_count})
