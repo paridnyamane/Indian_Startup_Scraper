@@ -20,11 +20,9 @@ def clean_text(html: str) -> str:
 
 
 def is_relevant_location(location: str) -> bool:
-    """
-    Check if a job location is relevant to Indian or global remote audiences.
-    
-    Keeps jobs where location is India, Remote, Worldwide, or unspecified.
-    """
+
+   # Keeps jobs where location is India, Remote, Worldwide, or unspecified.
+
     if not location:
         return True  # Empty location is considered relevant
     
