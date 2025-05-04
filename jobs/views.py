@@ -19,7 +19,7 @@ class JobPostListCreateView(generics.ListCreateAPIView):
     queryset = JobPost.objects.all().order_by('-date_posted')
     serializer_class = JobPostSerializer
 
-
+@csrf_exempt
 @api_view(["POST"])
 def run_scrapers_view(request):
     """
