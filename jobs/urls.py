@@ -1,7 +1,7 @@
 
 from django.urls import path
 from .views import job_list_view, JobPostListCreateView, run_scrapers_view
-from .views import cleanup_remotive_jobs
+#from .views import cleanup_remotive_jobs
 
 
 urlpatterns = [
