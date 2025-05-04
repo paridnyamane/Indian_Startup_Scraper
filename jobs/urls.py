@@ -9,4 +9,7 @@ urlpatterns = [
 
     # Run all scrapers and save jobs to the DB via POST
     path("run-scrapers/", run_scrapers_view, name="run-scrapers"),
+
+    path("cleanup-remotive/", cleanup_remotive_jobs, name="cleanup-remotive"),
+
 ]
