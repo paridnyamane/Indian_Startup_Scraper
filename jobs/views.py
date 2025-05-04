@@ -7,7 +7,7 @@ from .serializer import JobPostSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from jobs.all_scrapers import run_all_scrapers
-
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -86,5 +86,10 @@ def job_list_view(request):
     if company_query:
         jobs = jobs.filter(company_name__icontains=company_query)
 
+    #  Pagination
+    paginator = Paginator(jobs, 9)  # 9 jobs per page
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
-    return render(request, "jobs/home.html", {"jobs": jobs, "filter": filter})
+
+    return render(request, "jobs/home.html", {"jobs": page_obj, "filter": filter})
