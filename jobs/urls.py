@@ -1,6 +1,8 @@
 
 from django.urls import path
 from .views import job_list_view, JobPostListCreateView, run_scrapers_view
+from .views import cleanup_remotive_jobs
+
 
 urlpatterns = [
     path("", job_list_view, name="home"),  # for homepage view
