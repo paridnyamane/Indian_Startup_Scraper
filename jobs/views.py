@@ -13,6 +13,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 class JobPostListCreateView(generics.ListCreateAPIView):
@@ -98,6 +99,7 @@ def job_list_view(request):
     
 
     return render(request, "jobs/home.html", {"jobs": page_obj, "filter": filter})
+@csrf_exempt
 @require_http_methods(["POST"])
 def cleanup_remotive_jobs(request):
     """
