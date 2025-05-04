@@ -11,7 +11,7 @@ class JobPost(models.Model):
     apply_link = models.URLField()
     date_posted = models.DateTimeField(auto_now_add=True) #when the scraper saved the job
     job_posted_at = models.DateTimeField(null=True, blank=True) #when the job was actually posted 
-    source = models.CharField(max_length=50, default="") #del later
+    source = models.CharField(max_length=100, default="unknown") #del later
 
     def __str__(self):
         return f"{self.job_title} at {self.company_name}"
