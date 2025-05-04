@@ -93,4 +93,3 @@ def job_list_view(request):
 
 
     return render(request, "jobs/home.html", {"jobs": page_obj, "filter": filter})
->>>>>>> backup-main
