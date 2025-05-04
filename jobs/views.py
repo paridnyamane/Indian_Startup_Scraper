@@ -69,14 +69,14 @@ def job_list_view(request):
 
     jobs = JobPost.objects.all().order_by('-job_posted_at')
     # Apply post date filtering
-    if filter == "24h":
-        jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=1))
-    elif filter == "3d":
-        jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=3))
-    elif filter == "7d":
-        jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=7))
-    elif filter == "30d":
-        jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=30))
+    # if filter == "24h":
+    #     jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=1))
+    # elif filter == "3d":
+    #     jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=3))
+    # elif filter == "7d":
+    #     jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=7))
+    # elif filter == "30d":
+    #     jobs = jobs.filter(job_posted_at__gte=now() - timedelta(days=30))
 
      # Title/location filter
     if title_query:

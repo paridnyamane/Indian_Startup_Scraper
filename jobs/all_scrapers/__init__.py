@@ -4,6 +4,8 @@ from .remotive import remotive_scraper
 from .shopclues import shopclues_scraper
 from .paytm import paytm_scraper
 
+
+
 def run_all_scrapers():
     """
     Runs all job scrapers and aggregates their results into a single list.
