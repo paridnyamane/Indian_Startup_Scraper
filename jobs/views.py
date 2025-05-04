@@ -102,15 +102,14 @@ def job_list_view(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def cleanup_remotive_jobs(request):
-    """
-    One-time cleanup: delete Remotive entries whose location
-    isn’t India, Remote, or Worldwide.
-    """
-    qs = JobPost.objects.filter(source="remotive").exclude(
+    try:
+        qs = JobPost.objects.filter(source="remotive").exclude(
             Q(location__icontains="india") |
             Q(location__icontains="remote") |
             Q(location__icontains="worldwide") |
             Q(location="")
         )
-    deleted_count, _ = qs.delete()
-    return JsonResponse({"deleted": deleted_count})
+        deleted_count, _ = qs.delete()
+        return JsonResponse({"deleted": deleted_count})
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
