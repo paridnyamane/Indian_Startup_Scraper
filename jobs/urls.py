@@ -1,7 +1,7 @@
 
 from django.urls import path
 from .views import job_list_view, JobPostListCreateView, run_scrapers_view
-#from .views import cleanup_remotive_jobs
+
 
 
 urlpatterns = [
@@ -12,6 +12,6 @@ urlpatterns = [
     # Run all scrapers and save jobs to the DB via POST
     path("run-scrapers/", run_scrapers_view, name="run-scrapers"),
 
-    #path("cleanup-remotive/", cleanup_remotive_jobs, name="cleanup-remotive"),
+
 
 ]

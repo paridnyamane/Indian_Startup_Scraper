@@ -67,8 +67,8 @@ def remotive_scraper() -> list[dict]:
             "location": location or "Remote",
             "job_description": cleaned_description,
             "apply_link": job.get("url", ""),
-            "job_posted_at": now(),
-            "source":"remotive"
+            "job_posted_at": now()
+          
         })
 
     logger.info("Remotive scraper collected %d relevant jobs", len(jobs))
